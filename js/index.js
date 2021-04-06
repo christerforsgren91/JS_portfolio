@@ -14,7 +14,7 @@ const header = () => {
     headerContainer.classList.add('ui', 'inverted', 'segment')
     let nav = document.createElement('nav')
     nav.classList.add('ui', 'inverted', 'secondary', 'menu')
-    let tabs = ['My Portfolio', 'About Me', 'My Projects']
+    let tabs = ['My Portfolio', 'About Me', 'My Projects', 'Contact']
     tabs.forEach(tab => {
        let tabLink = document.createElement('a') 
        tabLink.classList.add('item')
@@ -34,12 +34,15 @@ const startPage = async (tab) => {
         mainContainer.innerHTML = '<h2>About Me</h2> <p>Welcome to my portfolio, here you will be able to read about me</p>'
     } else if (tab === 'My Projects') {
        await displayProjects()
+    } else if (tab === 'Contact') {
+        mainContainer.innerHTML = '<h2>How to contact me</h2> <p>christerforsgren1234@gmail.com</p>'
     } else {
         mainContainer.innerHTML = '<h2>Hello World</h2>'
     }
     mainContainer.classList.add('ui', 'container')
     root.appendChild(mainContainer)
 }
+    
 
 const displayProjects = async () => {
     let response = await (await fetch('./js/projects.json')).json()
